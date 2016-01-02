@@ -1,7 +1,7 @@
 {
   "name": "pearscript",
   "description": "Simple language that compiles into Javascript",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "keywords": [
     "compiler",
     "language",
@@ -32,5 +32,6 @@
   },
   "directories": {
     "example": "examples"
-  }
+  },
+  "dependencies": {}
 }
