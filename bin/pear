@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 var fs = require('fs');
 var transpiler = require('../src/transpiler');
+var chalk = require('chalk');
 var beautify = require('js-beautify').js_beautify;
 
 if(process.argv[2]) {
@@ -15,9 +16,10 @@ if(process.argv[2]) {
     var outputFile = ext[0] + '.js';
 
     fs.writeFileSync(outputFile, output);
+    console.log(chalk.green('Compiled into: ' + outputFile));
   } else {
-    console.log('File must have pear extension.');
+    console.log(chalk.red('File must have pear extension.'));
   }
 } else {
-  console.log('You must specify a file.');
+  console.log(chalk.red('You must specify a file.'));
 }

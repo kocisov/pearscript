@@ -31,6 +31,7 @@
     "example": "examples"
   },
   "dependencies": {
+    "chalk": "^1.1.1",
     "jison": "^0.4.15",
     "js-beautify": "^1.5.10"
   }
