@@ -20,9 +20,11 @@ pear your-file.pear
 
 It will produce your-file.js
 
-# How to use PearScript
+# Features
 
-## IF ELSE
+More features coming soon
+
+## If else
 ```
 if n > 3 {
   log.'i is greater than 3'
