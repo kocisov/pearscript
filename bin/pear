@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+var fs = require('fs');
+var transpiler = require('../src/transpiler');
+var beautify = require('js-beautify').js_beautify;
+
+if(process.argv[2]) {
+  var fileName = process.argv[2];
+  var ext = fileName.split('.');
+
+  if(ext.length > 0 && ext[ext.length -1] === 'pear') {
+
+    var transpiled = transpiler.transpile(fs.readFileSync(fileName, 'utf-8'));
+    var output = beautify(transpiled, { indent_size: 2, max_preserve_newlines: -1, end_with_newline: true, space_before_conditional: 0 });
+
+    var outputFile = ext[0] + '.js';
+
+    fs.writeFileSync(outputFile, output);
+  } else {
+    console.log('File must have pear extension.');
+  }
+} else {
+  console.log('You must specify a file.');
+}

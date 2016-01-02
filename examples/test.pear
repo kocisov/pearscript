@@ -1,0 +1,36 @@
+n = 2
+num = 0
+arr = [1 2 3 name value 'John' 'hero']
+
+if n > 3 {
+  log.'ahoy'
+  log."it's working!"
+} else {
+  log.'i is not greater than 3'
+}
+
+switch(num) {
+  -> 1337 log.'num is 1337'
+  -> 420 log.'num is 420'
+  -> 12 log.'num is 12'
+  -> 360 log.'num is 360'
+}
+
+al.'hello'
+
+while i < 3 {
+  al.'i is smaller than 3'
+  if port = 1337 {
+    num = 420
+  }
+  i++
+}
+
+for i 0 i > k.len i++ {
+  log.i
+}
+
+func double(x) {
+  num = x * x
+  return num
+}

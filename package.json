@@ -1,0 +1,36 @@
+{
+  "name": "pearscript",
+  "description": "Simple language that compiles into Javascript",
+  "version": "0.1.0",
+  "keywords": [
+    "compiler",
+    "language",
+    "javascript",
+    "pearscript"
+  ],
+  "main": "./bin/pear",
+  "bin": {
+    "pear": "./bin/pear"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "test": "./bin/pear ./examples/test.pear"
+  },
+  "author": "Ondřej Kocián <kocis.34@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/kocisov/pearscript#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kocisov/pearscript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kocisov/pearscript/issues"
+  },
+  "devDependencies": {
+    "jison": "^0.4.15",
+    "js-beautify": "^1.5.10"
+  },
+  "directories": {
+    "example": "examples"
+  }
+}
