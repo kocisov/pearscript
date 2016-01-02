@@ -157,5 +157,5 @@ switch(num) {
 [npm-badge]: https://img.shields.io/badge/npm-v0.1.3-brightgreen.svg
 [npm]: https://www.npmjs.com/package/pearscript
 
-[david-badge]: https://david-dm.org/kocisov/pearscript/
+[david-badge]: https://david-dm.org/kocisov/pearscript.svg
 [david-dm]: https://david-dm.org/kocisov/pearscript
