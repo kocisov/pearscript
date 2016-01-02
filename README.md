@@ -1,4 +1,4 @@
-# PearScript
+<img src="https://kocisov.github.io/pearscript/pearscript.png" width="300">
 
 [![npm package][npm-badge]][npm]
 [![david-dm][david-badge]][david-dm]
@@ -56,6 +56,23 @@ var variable = variable;
 var variable = "string";
 var variable = 'string';
 var variable = 128;
+```
+
+## Create function
+```
+func double(x) {
+  num = x * x
+  return num
+}
+```
+
+**compiles into**
+
+```
+var double = function(x) {
+  var num = x * x;
+  return num;
+}
 ```
 
 ## Alert and console.log
@@ -137,8 +154,8 @@ switch(num) {
 }
 ```
 
-[npm-badge]: https://img.shields.io/badge/npm-v0.1.2-brightgreen.svg
+[npm-badge]: https://img.shields.io/badge/npm-v0.1.3-brightgreen.svg
 [npm]: https://www.npmjs.com/package/pearscript
 
-[david-badge]: https://david-dm.org/kocisov/pearscript/dev-status.svg
-[david-dm]: https://david-dm.org/kocisov/pearscript#info=devDependencies
+[david-badge]: https://david-dm.org/kocisov/pearscript/
+[david-dm]: https://david-dm.org/kocisov/pearscript
