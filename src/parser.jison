@@ -65,7 +65,7 @@
 
 program
   : statements EOF
-    { return $1 }
+    { return yy.mainExp($1); }
   ;
 
 statements
@@ -94,8 +94,8 @@ statement
     { $$ = yy.arrayStatement($1, $4); }
   | ALERT '.' i
     { $$ = yy.alertStatement($3); }
-  | WHILE p '{' statements ap '}'
-    { $$ = yy.whileLoopStatement($2, $4, $5); }
+  | WHILE '(' i ')' p '{' statements ap '}'
+    { $$ = yy.whileLoopStatement($3, $5, $7, $8); }
   | FOR i NUMBER p ap '{' statements '}'
     { $$ = yy.forLoopStatement($2, $3, $4, $5, $7); }
   | RETURN sm

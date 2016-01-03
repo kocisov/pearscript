@@ -1,0 +1,17 @@
+k = 0
+
+if k < 3 {
+  log.'hello'
+}
+
+while (i) i < 3 {
+  al.'i is smaller than 3'
+  if port = 1337 {
+    num = 420
+  }
+  i++
+}
+
+for i 0 i > k.len i++ {
+  log.i
+}

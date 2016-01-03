@@ -1,6 +1,11 @@
 module.exports = {
+
+  mainExp: function(val) {
+    return '(function() {\n "use strict";\n\n' + val + '\n})();';
+  },
+
   ifStatement: function(nav, val) {
-    return 'if(' + nav + ')' + '{' + val + '}';
+  return 'if(' + nav + ')' + '{' + val + '}';
   },
 
   ifElseStatement: function(nav, val, elseval) {
@@ -12,35 +17,39 @@ module.exports = {
   },
 
   switchStatement: function(nav, val) {
-    return 'switch(' + nav + ') {' + val + '}';
+    return this.createVar(nav) + 'switch(' + nav + ') {' + val + '}';
   },
 
   setVar: function(name, val) {
     return 'var ' + name + ' = ' + val + ';';
   },
 
+  createVar: function(name) {
+    return 'var ' + name + ';';
+  },
+
   arrayStatement: function(name, val) {
-    return 'var ' + name + ' = [' + val + '];';
+    return this.createVar(name) + name + ' = [' + val + '];';
   },
 
   querySelector: function(name, val) {
-    return 'var ' + name + ' = document.querySelector(' + val + ');';
+    return this.createVar(name) + name + ' = document.querySelector(' + val + ');';
   },
 
   getElById: function(name, val) {
-    return 'var ' + name + ' = document.getElementById(' + val + ');';
+    return this.createVar(name) + name + ' = document.getElementById(' + val + ');';
   },
 
   createFunc: function(name, dothis) {
-    return 'var ' + name + ' = function() {' + dothis + '}';
+    return this.createVar(name) + name + ' = function() {' + dothis + '}';
   },
 
   createFuncWith: function(name, op, dothis) {
-    return 'var ' + name + ' = function(' + op + ') {' + dothis + '}';
+    return this.createVar(name) + name + ' = function(' + op + ') {' + dothis + '}';
   },
 
   createObjectStatement: function(name, val) {
-    return 'var ' + name + ' = {' + val + '}';
+    return this.createVar(name) + name + ' = {' + val + '}';
   },
 
   alertStatement: function(val) {
@@ -74,10 +83,10 @@ module.exports = {
   },
 
   forLoopStatement: function(o, val, exp, ft, stat) {
-    return 'for(' + o + ' = ' + val + '; ' + exp + '; ' + ft + ') {' + stat + '}';
+    return this.createVar(o) + 'for(' + o + ' = ' + val + '; ' + exp + '; ' + ft + ') {' + stat + '}';
   },
 
-  whileLoopStatement: function(o, stat, ap) {
-    return 'while(' + o + ') {' + stat + ap + ';}';
+  whileLoopStatement: function(o, op, stat, ap) {
+    return this.createVar(o) + 'while(' + op + ') {' + stat + ap + ';}';
   }
 };
