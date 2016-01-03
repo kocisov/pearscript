@@ -24,6 +24,7 @@
 'bool'                                return 'BOOL'
 'undefined'                           return 'UNDEFINED'
 'null'                                return 'NULL'
+'_con'                                return 'CONCAT'
 
 '{'                                   return '{'
 '}'                                   return '}'
@@ -90,6 +91,8 @@ statement
     { $$ = yy.createFuncWith($2, $4, $7); }
   | i '=' sm
     { $$ = yy.setVar($1, $3); }
+  | i '=' '{' statements '}'
+    { $$ = yy.setVar($1, $4); }
   | i '=' '[' arr ']'
     { $$ = yy.arrayStatement($1, $4); }
   | ALERT '.' i
@@ -114,6 +117,8 @@ statement
     { $$ = yy.querySelector($1, $5); }
   | i '=' '$' 'g' '.' i
     { $$ = yy.getElById($1, $6); }
+  | i '.' i
+    { $$ = $1 + '[' + $3 + ']'; }
   | ap
   ;
 
@@ -149,6 +154,8 @@ ap
     { $$ = $1 + '++'; }
   | i '-' '-'
     { $$ = $1 + '--'; }
+  | CONCAT
+    { $$ = ' + '; }
   ;
 
 m

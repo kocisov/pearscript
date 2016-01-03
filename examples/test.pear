@@ -1,8 +1,7 @@
-n = 2
-num = 0
 name = null
 value = null
 arr = [1 2 3 name value 'John' 'hero']
+n = 2
 
 if n > 3 {
   log.'ahoy'
@@ -29,7 +28,7 @@ switch(num) {
 
 al.'hello'
 
-while i < 3 {
+while (i) i < 3 {
   al.'i is smaller than 3'
   if port = 1337 {
     num = 420
