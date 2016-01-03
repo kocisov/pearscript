@@ -23,6 +23,14 @@ module.exports = {
     return 'var ' + name + ' = [' + val + '];';
   },
 
+  querySelector: function(name, val) {
+    return 'var ' + name + ' = document.querySelector(' + val + ');';
+  },
+
+  getElById: function(name, val) {
+    return 'var ' + name + ' = document.getElementById(' + val + ');';
+  },
+
   createFunc: function(name, dothis) {
     return 'var ' + name + ' = function() {' + dothis + '}';
   },
@@ -39,12 +47,26 @@ module.exports = {
     return 'alert(' + val + ');';
   },
 
-  jsonParseStatement: function(val) {
-    return 'JSON.parse(' + val + ')';
+  jsonParseStatement: function(val, opt) {
+    switch(opt) {
+      case 1:
+        return 'JSON.parse(' + val + ');';
+        break;
+      case 0:
+        return 'JSON.parse(' + val + ')';
+        break;
+    }
   },
 
   jsonStringifyStatement: function(val, opt) {
-    return 'JSON.stringify(' + val + ')';
+        switch(opt) {
+      case 1:
+        return 'JSON.stringify(' + val + ');';
+        break;
+      case 0:
+        return 'JSON.stringify(' + val + ')';
+        break;
+    }
   },
 
   returnStatement: function(val) {

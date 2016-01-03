@@ -60,6 +60,28 @@ var variable = 'string';
 var variable = 128;
 ```
 
+## Set querySelector to var
+```
+variable = $.'main'
+```
+
+**compiles into**
+
+```
+var variable = document.querySelector('main');
+```
+
+## Set getElementById to var
+```
+el = $g.'#main'
+```
+
+**compiles into**
+
+```
+var el = document.getElementById('#main');
+```
+
 ## Create function
 ```
 func double(x) {
@@ -90,6 +112,19 @@ console.log('hello world');
 alert('hello world');
 ```
 
+If you want to console.log some function use this
+```
+log.{ not_object -> {message: 'hello'}  }
+```
+
+**which compiles into**
+
+```
+console.log(var not_object = {
+  message: 'hello',
+});
+```
+
 ## Array
 ```
 array_name = [variable "string" 'string' 128]
@@ -99,6 +134,40 @@ array_name = [variable "string" 'string' 128]
 
 ```
 var array_name = [variable, "string", 'string', 128];
+```
+
+## JSON
+```
+j.parse json
+j.strin variabel
+```
+
+**compiles into**
+
+```
+JSON.parse(json)
+JSON.stringify(variabel)
+
+// without ;
+// u can add . at the end for ;
+j.parse json.
+```
+
+## Objects
+```
+object -> {
+  hero: 'Superman'
+  power: 'Brilliant'
+}
+```
+
+**compiles into**
+
+```
+var object = {
+  hero: 'Superman',
+  power: 'brilliant',
+}
 ```
 
 ## For and While loop
@@ -156,7 +225,7 @@ switch(num) {
 }
 ```
 
-[npm-badge]: https://img.shields.io/badge/npm-v0.1.3-brightgreen.svg
+[npm-badge]: https://img.shields.io/badge/npm-v0.1.5-brightgreen.svg
 [npm]: https://www.npmjs.com/package/pearscript
 
 [david-badge]: https://david-dm.org/kocisov/pearscript.svg

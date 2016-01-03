@@ -1,5 +1,7 @@
 n = 2
 num = 0
+name = null
+value = null
 arr = [1 2 3 name value 'John' 'hero']
 
 if n > 3 {
@@ -7,6 +9,15 @@ if n > 3 {
   log."it's working!"
 } else {
   log.'i is not greater than 3'
+}
+
+variable = $.'main'
+el = $g.'#main'
+
+log.{
+  not_object -> {
+    message: 'hello'
+  }
 }
 
 switch(num) {
@@ -34,3 +45,11 @@ func double(x) {
   num = x * x
   return num
 }
+
+object -> {
+  hero: 'Superman'
+  power: 'Brilliant'
+}
+
+j.parse num.
+log.{ j.parse num }

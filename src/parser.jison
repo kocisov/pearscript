@@ -16,10 +16,14 @@
 'len'                                 return 'LEN'
 'return'                              return 'RETURN'
 'func'                                return 'FUNCTION'
+'j.parse'                             return 'j.parse'
+'j.strin'                             return 'j.strin'
+'$'                                   return '$'
+'g'                                   return 'g'
 
 'bool'                                return 'BOOL'
-'undefined'                           return 'undefined'
-'null'                                return 'null'
+'undefined'                           return 'UNDEFINED'
+'null'                                return 'NULL'
 
 '{'                                   return '{'
 '}'                                   return '}'
@@ -42,6 +46,7 @@
 '>'                                   return '>'
 ','                                   return ','
 '.'                                   return '.'
+':'                                   return ':'
 ';'                                   return ';'
 
 (['](\\.|[^']|\\\')*?['])+            return 'STRING'
@@ -73,6 +78,8 @@ statements
 statement
   : CLOG '.' i
     { $$ = yy.printStatement($3); }
+  | CLOG '.' '{' statements '}'
+    { $$ = yy.printStatement($4); }
   | IF p '{' statements '}'
     { $$ = yy.ifStatement($2, $4); }
   | IF p '{' statements '}' ELSE '{' statements '}'
@@ -93,6 +100,20 @@ statement
     { $$ = yy.forLoopStatement($2, $3, $4, $5, $7); }
   | RETURN sm
     { $$ = yy.returnStatement($2); }
+  | i '->' '{' objects '}'
+    { $$ = yy.createObjectStatement($1, $4); }
+  | 'j.parse' i
+    { $$ = yy.jsonParseStatement($2, 0); }
+  | 'j.strin' i
+    { $$ = yy.jsonStringifyStatement($2, 0); }
+  | 'j.parse' i '.'
+    { $$ = yy.jsonParseStatement($2, 1); }
+  | 'j.strin' i '.'
+    { $$ = yy.jsonStringifyStatement($2, 1); }
+  | i '=' '$' '.' i
+    { $$ = yy.querySelector($1, $5); }
+  | i '=' '$' 'g' '.' i
+    { $$ = yy.getElById($1, $6); }
   | ap
   ;
 
@@ -108,6 +129,19 @@ i
     { $$ = $1; }
   | NUMBER
     { $$ = $1; }
+  | NULL
+    { $$ = $1; }
+  ;
+
+objects
+  : objExpr
+  ;
+
+objExpr
+  : i ':' i
+    { $$ = $1 + ': ' + $3 + ','; }
+  | objExpr i ':' i
+    { $$ = $1 + $2 + ': ' + $4 + ','; }
   ;
 
 ap
