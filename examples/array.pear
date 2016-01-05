@@ -1,5 +1,5 @@
 // set variables
-ip   = localhost
+ip   = 'localhost'
 
 arr = [ip ':' 1337]
 log.{arr.1 _con arr.2 _con arr.3}
