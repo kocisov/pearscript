@@ -23,7 +23,7 @@ It will produce your-file.js
 ## Documentation
 You can find full documentation on <a href="https://kocisov.github.io/pearscript/docs">This page</a>
 
-[npm-badge]: https://img.shields.io/badge/npm-v0.1.6-brightgreen.svg
+[npm-badge]: https://img.shields.io/badge/npm-v0.1.7-brightgreen.svg
 [npm]: https://www.npmjs.com/package/pearscript
 
 [david-badge]: https://david-dm.org/kocisov/pearscript.svg
