@@ -2,7 +2,6 @@
 var fs = require('fs');
 var transpiler = require('../lib/transpiler');
 var chalk = require('chalk');
-var beautify = require('js-beautify').js_beautify;
 
 if(process.argv[2]) {
   var fileName = process.argv[2];
@@ -10,8 +9,7 @@ if(process.argv[2]) {
 
   if(ext.length > 0 && ext[ext.length -1] === 'pear') {
 
-    var transpiled = transpiler.transpile(fs.readFileSync(fileName, 'utf-8'));
-    var output = beautify(transpiled, { indent_size: 2, max_preserve_newlines: -1, end_with_newline: true, space_before_conditional: 0 });
+    var output = transpiler.transpile(fs.readFileSync(fileName, 'utf-8'));
 
     var outputFile = ext[0] + '.js';
 
