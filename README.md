@@ -20,6 +20,8 @@ pear your-file.pear
 
 It will produce your-file.js
 
+Or use <a href="https://github.com/Kocisov/gulp-pearscript">Gulp plugin</a>
+
 ## Documentation
 You can find full documentation on <a href="https://kocisov.github.io/pearscript/docs">This page</a>
 
