@@ -1,23 +1,29 @@
 #!/usr/bin/env node
-var fs = require('fs');
-var transpiler = require('../lib/transpiler');
-var chalk = require('chalk');
+const fs = require('fs');
+const transpiler = require('../lib/transpiler');
+const chalk = require('chalk');
 
 if(process.argv[2]) {
-  var fileName = process.argv[2];
-  var ext = fileName.split('.');
+  const fileName = process.argv[2];
+  const ext = fileName.split('.');
 
   if(ext.length > 0 && ext[ext.length -1] === 'pear') {
 
-    var output = transpiler.transpile(fs.readFileSync(fileName, 'utf-8'));
+    const output = transpiler.transpile(fs.readFileSync(fileName, 'utf-8'));
 
-    var outputFile = ext[0] + '.js';
-
-    fs.writeFileSync(outputFile, output);
-    console.log(chalk.green('Compiled into: ' + outputFile));
   } else {
     console.log(chalk.red('File must have pear extension.'));
   }
 } else {
   console.log(chalk.red('You must specify a file.'));
+}
+
+if(process.argv[3]) {
+  const of = process.argv[3];
+  fs.writeFileSync(of, output);
+  console.log(chalk.green('Compiled into: ' + of));
+} else {
+  const outputFile = ext[0] + '.js';
+  fs.writeFileSync(outputFile, output);
+  console.log(chalk.green('Compiled into: ' + outputFile));
 }
