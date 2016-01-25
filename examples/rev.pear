@@ -1,10 +1,8 @@
-{"
-  function test(value) {
-    ___ = value.slice(0, -1);
-    return ___;
-  }
-"}
+func test(value) {
+  ___ = {" value.slice(1, -1) "}
+  return ___
+}
 
-log.{{"test('.Lorem ipsum dolor.')"}}
-
-av = 3
+log.{
+  {" test('.Lorem ipsum dolor.') "}
+}
