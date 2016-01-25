@@ -23,9 +23,10 @@ It will produce your-file.js
 Or use <a href="https://github.com/Kocisov/gulp-pearscript">Gulp plugin</a>
 
 ## Documentation
-You can find full documentation on <a href="https://img.shields.io/npm/v/pearscript.svg">This page</a>
+###### Documentation being reworked
+##### Use ./examples/
 
-[npm-badge]: https://img.shields.io/badge/npm-v0.2.0-brightgreen.svg
+[npm-badge]: https://img.shields.io/npm/v/pearscript.svg
 [npm]: https://www.npmjs.com/package/pearscript
 
 [david-badge]: https://david-dm.org/kocisov/pearscript.svg
