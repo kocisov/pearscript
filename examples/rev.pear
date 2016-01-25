@@ -5,6 +5,6 @@
   }
 "}
 
-log.{{"test(value)"}}
+log.{{"test('.Lorem ipsum dolor.')"}}
 
 av = 3
