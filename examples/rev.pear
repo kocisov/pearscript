@@ -1,0 +1,10 @@
+{"
+  function test(value) {
+    ___ = value.slice(0, -1);
+    return ___;
+  }
+"}
+
+log.{{"test(value)"}}
+
+av = 3

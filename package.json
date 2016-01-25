@@ -1,7 +1,7 @@
 {
   "name": "pearscript",
   "description": "Simple language that compiles into Javascript",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "keywords": [
     "compiler",
     "language",
